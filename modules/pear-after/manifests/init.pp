@@ -9,7 +9,8 @@ class pear-after {
     }
 
     exec { 'php::pear::discover-phpunit':
-        command => 'pear channel-discover pear.phpunit.de'
+        command => 'pear channel-discover pear.phpunit.de',
+        unless => 'pear list-channels | grep pear.phpunit.de'
     }
     
 /*
