@@ -6,6 +6,7 @@ class php {
         'php'
         , 'php-common', 'php-cli'
         , 'php-devel', 'httpd-devel'
+        , 'php-xml' # needed for PHPUnit
         , 'gcc', 'make'
         , 'pcre-devel' # for apc
     ]

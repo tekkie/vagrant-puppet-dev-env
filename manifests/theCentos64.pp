@@ -4,9 +4,10 @@ File { owner => 0, group => 0, mode => 0644 }
 
 include base
 include apache
-include pear
 include php
+include pear
 include apc
+include php-qa-tools
 include users
 include xxx
 
