@@ -6,7 +6,9 @@ Prepare a local development environment using Vagrant and provision it with Pupp
 Prerequisites
 -------------
 
-Install [Vagrant](http://downloads.vagrantup.com/) on your machine.
+Download and install [VirtualBox](https://www.virtualbox.org/wiki/Downloads).
+
+Download and install [Vagrant](http://downloads.vagrantup.com/) on your machine.
 
 Steps
 -----
