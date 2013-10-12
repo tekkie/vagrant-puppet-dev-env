@@ -7,17 +7,24 @@ class pear-after {
         unless  => 'pear config-get auto_discover system | grep -q 1',
         path    => [ '/bin/', '/sbin/' , '/usr/bin/', '/usr/sbin/' ],
     }
-    
-    exec { 'php::pear::discover_phpunit' :
+
+    exec { 'php::pear::discover-phpunit':
         command => 'pear channel-discover pear.phpunit.de'
     }
     
+/*
     exec { 'php::pear::discover_symfony' :
         command => 'pear channel-discover pear.symfony.com'
     }
     
     exec { 'php::pear::discover_ez' :
         command => 'pear channel-discover components.ez.no'
+    }
+*/
+    
+    exec { 'php::pear::update-channels':
+      command => 'pear update-channels',
+      require => [Package['php-pear']]
     }
     
 }
