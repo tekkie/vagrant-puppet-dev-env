@@ -20,5 +20,15 @@ class php-qa-tools {
         creates => '/usr/bin/phpmd',
         require => Exec['php::pear::discover-phpmd']
     }
+    
+    exec { 'php::qa-tools::install-phpcpd':
+        command => "/usr/bin/pear install --alldeps pear.phpunit.de/phpcpd",
+        creates => '/usr/bin/phpcpd',
+    }
+    
+    exec { 'php::qa-tools::install-phpdcd':
+        command => "/usr/bin/pear install --alldeps pear.phpunit.de/phpdcd-beta",
+        creates => '/usr/bin/phpdcd',
+    }
 
 }
