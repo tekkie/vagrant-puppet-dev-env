@@ -19,12 +19,13 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
   # accessing "localhost:8080" will access port 80 on the guest machine.
-  config.vm.network :forwarded_port, guest: 80, host: 8080
+ config.vm.network :forwarded_port, guest: 80, host: 8090
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
   # config.vm.network :private_network, ip: "192.168.33.10"
-  config.vm.network :private_network, ip: "192.168.56.101"
+  # config.vm.network :private_network, ip: "192.168.123.123"
+  config.vm.network "private_network", ip: "192.168.123.123", :netmask => "255.255.255.0"
 
   # Create a public network, which generally matched to bridged network.
   # Bridged networks make the machine appear as another physical device on
@@ -71,7 +72,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     puppet.manifests_path = "manifests"
     puppet.manifest_file = "theCentos64.pp"
     puppet.module_path = "modules"
-    puppet.options = ['--verbose '] #'--debug']
+    puppet.options = [
+      '--verbose',
+      # '--debug' # uncomment debug when you want to see detailed info on provisioning execution
+    ]
   end
 
 end
