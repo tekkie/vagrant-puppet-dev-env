@@ -14,5 +14,11 @@ class php-qa-tools {
         creates => '/usr/bin/phploc',
         require => Exec['php::pear::update-channels']
     }
+    
+    exec { 'php::qa-tools::install-phpmd':
+        command => 'pear install phpmd/PHP_PMD',
+        creates => '/usr/bin/phpmd',
+        require => Exec['php::pear::discover-phpmd']
+    }
 
 }

@@ -10,9 +10,19 @@ class pear-after {
 
     exec { 'php::pear::discover-phpunit':
         command => 'pear channel-discover pear.phpunit.de',
-        unless => 'pear list-channels | grep pear.phpunit.de'
+        unless  => 'pear list-channels | grep pear.phpunit.de'
     }
-    
+
+    exec { 'php::pear::discover-phpmd':
+        command => 'pear channel-discover pear.phpmd.org',
+        unless  => 'pear list-channels | grep pear.phpmd.org'
+    }
+
+    exec { 'php::pear::discover-pdepend':
+        command => 'pear channel-discover pear.pdepend.org',
+        unless  => 'pear list-channels | grep pear.pdepend.org'
+    }
+
 /*
     exec { 'php::pear::discover_symfony' :
         command => 'pear channel-discover pear.symfony.com'
