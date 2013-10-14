@@ -1,5 +1,5 @@
 class pear-after {
-    
+
     require pear
 
     exec { 'php::pear::auto_discover':
@@ -32,10 +32,11 @@ class pear-after {
         command => 'pear channel-discover components.ez.no'
     }
 */
-    
+
     exec { 'php::pear::update-channels':
-      command => 'pear update-channels',
-      require => [Package['php-pear']]
+        command => 'pear update-channels',
+        unless  => 'pear config-get auto_discover system | grep -q 1',
+        require => [Package['php-pear']]
     }
-    
+
 }
