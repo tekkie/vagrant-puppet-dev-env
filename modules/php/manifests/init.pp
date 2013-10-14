@@ -17,5 +17,9 @@ class php {
     file { '/var/www/html/info.php' :
         source => "puppet:///modules/apache/phpinfo.php"
     }
+
+    file { '/etc/php.ini' :
+        source => "puppet:///modules/php/php.ini"
+    }
     
 }
