@@ -9,6 +9,7 @@ include pear
 include apc
 include php-qa-tools
 include users
+include iptables
 include xxx
 
 /*
@@ -24,4 +25,5 @@ package { [
   ]:
   ensure  => 'installed',
 }
+
 */
