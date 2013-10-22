@@ -10,20 +10,5 @@ include apc
 include php-qa-tools
 include users
 include iptables
+include mysql
 include xxx
-
-/*
-package { [
-    # 'build-essential'
-    # 'vim'
-     'curl', 'mlocate', 'links'
-    , 'git-core'
-    , 'httpd'
-    , 'php', 'php-mysql', 'php-cli'
-    # , 'git-flow'
-    , 'mysql-server'
-  ]:
-  ensure  => 'installed',
-}
-
-*/
