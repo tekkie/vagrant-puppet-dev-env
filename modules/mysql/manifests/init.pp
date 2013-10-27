@@ -17,11 +17,13 @@ class mysql {
     exec { 'mysql::admin::password':
         command => '/usr/bin/mysqladmin -u root password ils812wk',
         require => [Package['mysql-server'], Package['httpd'], Service['mysqld']],
-        unless  => 'mysql -u root',
+        unless  => 'mysql -u root --password=ils812wk',
     }
     
     file { '/var/www/html/mysql.php':
-      source => "puppet:///modules/mysql/mysql_connect.php"
+      source => 'puppet:///modules/mysql/mysql_connect.php',
+      /* the /var/www/html folder will only be available after the httpd package is installed */
+      require => Package['httpd'],
     }
 
 }
